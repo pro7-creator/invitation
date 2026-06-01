@@ -1,282 +1,374 @@
-﻿<!DOCTYPE html><html class="dark" lang="ko" style=""><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<style>
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주식회사 제니트리 코스닥 상장 기념 주주모임</title>
+    <!-- [Tailwind CSS v4] 웹 화면을 예쁘게 꾸며주는 도구를 인터넷에서 불러옵니다. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- [FontAwesome] 달력, 위치 핀 등 귀엽고 세련된 아이콘을 사용하기 위해 불러옵니다. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- [구글 폰트] 진중한 분위기의 Noto Serif(명조체)와 깔끔한 Noto Sans(고딕체) 서체를 불러옵니다. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto_Serif_KR:wght@300;500;700&family=Noto_Sans_KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 기본 글꼴을 깔끔한 눈의 피로가 적은 고딕(Noto Sans)으로 세팅합니다. */
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            -webkit-font-smoothing: antialiased; /* 글씨 테두리를 부드럽게 깎아 가독성을 높입니다. */
+        }
+        /* 우아함이 필요한 제목이나 라벨용 명조 서체 클래스입니다. */
+        .font-serif { 
+            font-family: 'Noto Serif KR', serif; 
+        }
+
+        /* [디자인 1] 고급 수입 종이의 미세한 오톨도톨한 입자 질감(Noise)을 구현한 배경 */
+        .premium-bg-texture {
+            background-color: #FAF9F6; /* 완전 차가운 흰색 대신 부드러운 우유빛 미색 */
+            /* 미세한 모래알 질감 효과를 주는 가벼운 배경 패턴 */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.018'/%3E%3C/svg%3E");
+        }
+
+        /* [디자인 2] 최고급 명품 양장 다이어리 표지 느낌의 딥 네이비 헤더 배경 */
+        .premium-header-bg {
+            background-color: #0A192F;
+            /* 중심에서 밖으로 어두워지는 방사형 그라데이션과 미세 가죽 질감을 합성 */
+            background-image: radial-gradient(circle at 50% 30%, #152E54 0%, #061122 100%),
+                              url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+
+        /* [디자인 3] 입체적으로 빛나는 리얼 금박(Gold Foil) 효과 */
+        /* 왼쪽 위에서 오른쪽 아래로 흐르는 메탈릭 금빛 스펙트럼 그라데이션 */
         .gold-foil-text {
-            background: linear-gradient(to right, #e9c176 0%, #ffdea5 50%, #e9c176 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 30%, #FFFFFF 45%, #AA7C11 75%, #D4AF37 100%);
+            -webkit-background-clip: text; /* 금빛을 글자 뼈대 영역 안에만 칠합니다. */
+            -webkit-text-fill-color: transparent; /* 본래 글씨 색을 지워 그라데이션이 드러나게 합니다. */
+            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15); /* 그림자를 약간 주어 튀어나오게 합니다. */
         }
-        .etched-divider {
+
+        /* 헤더 아래쪽 테두리에 빛나는 금박 선을 두르기 위한 설정 */
+        .gold-foil-border {
+            border-image: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 40%, #AA7C11 70%, #F3E7C4 100%) 1;
+        }
+
+        /* [디자인 4] 둥근 모서리와 은은한 이중 그림자로 명품 느낌을 낸 하이라이트 카드 */
+        .premium-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(197, 168, 128, 0.18); /* 아주 옅은 황금빛 테두리 */
+            /* 바닥에서 둥실 떠오른 느낌의 우아한 그림자 */
+            box-shadow: 0 10px 30px -10px rgba(10, 25, 47, 0.05), 
+                        0 2px 10px -2px rgba(197, 168, 128, 0.06);
+            /* 부드럽고 쫀쫀한 애니메이션 효과 속도 정의 */
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* 카드에 마우스를 올리거나 손으로 터치했을 때 우아하게 올라가는 시각 반응 */
+        .premium-card:hover {
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+            border-color: rgba(197, 168, 128, 0.35); /* 테두리가 조금 더 선명한 금색으로 변경 */
+            box-shadow: 0 20px 40px -15px rgba(10, 25, 47, 0.1), 
+                        0 4px 15px -2px rgba(197, 168, 128, 0.12);
+        }
+
+        /* [디자인 5] 각 내용 영역을 자연스럽게 구분해주는 스르륵 사라지는 금빛 실선 */
+        .gold-divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent 0%, #e9c176 50%, transparent 100%);
-            opacity: 0.4;
-        }
-        .embossed-border {
-            border: 1px solid rgba(233, 193, 118, 0.2);
-        }
-        .navy-overlay {
-            background: linear-gradient(180deg, rgba(16, 20, 21, 0.7) 0%, rgba(16, 20, 21, 0.95) 100%);
-        }
-        .gold-glow {
-            box-shadow: 0 0 20px rgba(233, 193, 118, 0.15);
-        }
-        /* New Gold Frame Styles */
-        .gold-frame-wrapper {
-            padding: 12px;
-            background-color: #101415;
-            min-height: 100vh;
-        }
-        .gold-frame-inner {
-            border: 1px solid #e9c176;
+            /* 좌우 끝은 투명하고 가운데만 금빛이 살짝 나타나도록 디자인 */
+            background: linear-gradient(90deg, transparent 0%, rgba(197, 168, 128, 0.1) 15%, rgba(197, 168, 128, 0.5) 50%, rgba(197, 168, 128, 0.1) 85%, transparent 100%);
             position: relative;
-            min-height: calc(100vh - 24px);
         }
-        .gold-frame-corner {
+        /* 금빛 실선 한가운데에 중심을 잡아주는 빛나는 작은 마름모 다이아몬드 */
+        .gold-diamond {
+            width: 7px;
+            height: 7px;
+            background: linear-gradient(135deg, #F3E7C4, #AA7C11);
+            transform: rotate(45deg) translate(-50%, -50%);
             position: absolute;
-            width: 15px;
-            height: 15px;
-            border: 2px solid #e9c176;
-            z-index: 60;
+            left: 50%;
+            top: 50%;
+            transform-origin: 0 0;
+            box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
         }
-        .corner-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
-        .corner-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
-        .corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
-        .corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+        /* [디자인 6] 마우스 올릴 때 빔이 흐르고 은은히 빛나는(Glow) 프리미엄 버튼 */
+        .btn-premium {
+            position: relative;
+            overflow: hidden; /* 버튼 밖으로 나가는 빛줄기 효과를 잘라냅니다. */
+            background: linear-gradient(135deg, #0A192F 0%, #152E54 100%);
+            border: 1px solid rgba(197, 168, 128, 0.4);
+            box-shadow: 0 4px 15px rgba(10, 25, 47, 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* 버튼 안에서 왼쪽에서 오른쪽으로 슥 훑고 지나가는 무지개 광채빔 필터 */
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(243, 231, 196, 0.25), transparent);
+            transform: skewX(-25deg); /* 사선 모양으로 기울임 */
+            transition: 0.75s ease;
+        }
+        /* 마우스를 대면 광채빔이 0.75초 만에 오른쪽 끝으로 스쳐 지나갑니다. */
+        .btn-premium:hover::before {
+            left: 150%;
+        }
+        /* 호버 시 테두리가 빛나고 골드 아우라 광채가 발산됩니다. */
+        .btn-premium:hover {
+            border-color: rgba(197, 168, 128, 0.85);
+            box-shadow: 0 0 25px rgba(197, 168, 128, 0.35), 0 6px 20px rgba(10, 25, 47, 0.25);
+            transform: translateY(-2px);
+        }
+        .btn-premium:active {
+            transform: translateY(0);
+        }
+
+        /* [디자인 7] 참석/불참 라디오 버튼을 선택했을 때 세련되게 불이 켜지는 럭셔리 라벨 */
+        .premium-radio-label {
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            background-color: #FFFFFF;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .premium-radio-label:hover {
+            border-color: rgba(197, 168, 128, 0.5);
+            background-color: rgba(197, 168, 128, 0.02);
+        }
+        /* 선택된(checked) 경우, 우아한 연한 금빛 배경색과 짙은 네이비 텍스트로 변화 */
+        .premium-radio-label:has(input:checked) {
+            border-color: #AA7C11;
+            background-color: rgba(197, 168, 128, 0.08);
+            color: #0A192F;
+            box-shadow: 0 4px 12px rgba(197, 168, 128, 0.12);
+        }
+
+        /* [디자인 8] 성명 입력창에 커서를 넣었을 때 부드러운 포커스 아우라 효과 */
+        .premium-input {
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            background-color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .premium-input:focus {
+            outline: none;
+            border-color: #AA7C11;
+            box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.2); /* 은은하게 외곽으로 퍼지는 금빛 광채 */
+        }
     </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "tertiary-container": "#09182a",
-                        "tertiary-fixed": "#d5e3fd",
-                        "error-container": "#93000a",
-                        "background": "#101415",
-                        "on-primary-fixed-variant": "#3f465c",
-                        "outline-variant": "#45464d",
-                        "on-secondary-fixed": "#261900",
-                        "on-background": "#e0e3e5",
-                        "surface-dim": "#101415",
-                        "primary": "#bec6e0",
-                        "secondary-fixed-dim": "#e9c176",
-                        "on-secondary-fixed-variant": "#5d4201",
-                        "on-primary-fixed": "#131b2e",
-                        "surface-container-lowest": "#0b0f10",
-                        "surface-container": "#1d2022",
-                        "inverse-surface": "#e0e3e5",
-                        "surface-tint": "#bec6e0",
-                        "surface-container-high": "#272a2c",
-                        "surface-variant": "#323537",
-                        "on-error-container": "#ffdad6",
-                        "on-error": "#690005",
-                        "secondary-container": "#604403",
-                        "surface-container-highest": "#323537",
-                        "on-secondary": "#412d00",
-                        "on-surface-variant": "#c6c6cd",
-                        "on-tertiary": "#233144",
-                        "secondary-fixed": "#ffdea5",
-                        "inverse-on-surface": "#2d3133",
-                        "surface-container-low": "#191c1e",
-                        "primary-fixed-dim": "#bec6e0",
-                        "on-tertiary-container": "#738298",
-                        "primary-fixed": "#dae2fd",
-                        "secondary": "#e9c176",
-                        "on-primary": "#283044",
-                        "surface": "#101415",
-                        "tertiary": "#b9c7e0",
-                        "tertiary-fixed-dim": "#b9c7e0",
-                        "outline": "#909097",
-                        "on-surface": "#e0e3e5",
-                        "inverse-primary": "#565e74",
-                        "on-tertiary-fixed": "#0d1c2f",
-                        "error": "#ffb4ab",
-                        "on-tertiary-fixed-variant": "#3a485c",
-                        "on-secondary-container": "#dab36a",
-                        "surface-bright": "#363a3b",
-                        "primary-container": "#0f172a",
-                        "on-primary-container": "#798098"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0px",
-                        "lg": "0px",
-                        "xl": "0px",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-mobile": "20px",
-                        "container-max": "1200px",
-                        "gutter": "24px",
-                        "margin-desktop": "64px",
-                        "unit": "8px",
-                        "section-gap": "80px"
-                    },
-                    "fontFamily": {
-                        "label-caps": ["Libre Caslon Text", "serif"],
-                        "button-text": ["Libre Caslon Text", "serif"],
-                        "headline-lg-mobile": ["Libre Caslon Text", "serif"],
-                        "body-md": ["Libre Caslon Text", "serif"],
-                        "headline-lg": ["Libre Caslon Text", "serif"],
-                        "body-lg": ["Libre Caslon Text", "serif"],
-                        "display-lg": ["Libre Caslon Text", "serif"]
-                    },
-                    "fontSize": {
-                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
-                        "button-text": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                        "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "headline-lg": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
-                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
-                    }
-                },
-            },
+</head>
+<body class="premium-bg-texture text-stone-800 flex justify-center min-h-screen">
+
+    <!-- 스마트폰에서도 대칭을 딱 잡아주는 600px 폭의 품격 있는 리플렛 스타일 컨테이너 -->
+    <div class="w-full max-w-[600px] bg-white shadow-2xl flex flex-col justify-between my-0 md:my-6 rounded-none md:rounded-2xl overflow-hidden border border-stone-200/50">
+        
+        <!-- 1. 헤더 영역 (고급 딥 네이비 양장 텍스처 & 골드 포인트) -->
+        <header class="relative premium-header-bg text-white px-8 py-24 text-center border-b-[3px] gold-foil-border">
+            <!-- 미세한 별빛을 수놓은 듯한 헤더 장식 레이어 -->
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+            
+            <!-- 라벨: 은은한 명조 금박 라벨 -->
+            <p class="font-serif gold-foil-text tracking-[0.25em] uppercase text-xs font-medium mb-4">Notice of General Meeting</p>
+            
+            <!-- 메인 제목: 웅장함과 현대적인 타이포그래피의 만남 -->
+            <h1 class="font-serif text-2xl md:text-3xl font-medium tracking-wide leading-relaxed px-2">
+                주식회사 제니트리<br>
+                <span class="text-sm tracking-[0.3em] font-light text-stone-400 block mt-2 mb-3">KOSDAQ LISTING CELEBRATION</span>
+                <span class="gold-foil-text font-bold">코스닥 상장 기념 주주모임</span><br>
+                <span class="text-stone-300 font-light text-xl mt-1 inline-block">소집 통지서</span>
+            </h1>
+            
+            <!-- 황금 비율 미세 중앙 장식 가로선 -->
+            <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#C5A880] to-transparent mx-auto my-8"></div>
+            
+            <p class="text-xs text-stone-400 tracking-[0.3em] font-light uppercase">Janytree Co., Ltd.</p>
+        </header>
+
+        <!-- 2. 본문 영역 (여유롭고 가독성 높은 호텔 리플렛 레이아웃) -->
+        <main class="px-8 py-16 space-y-16">
+
+            <!-- 환영 인사말 섹션 -->
+            <section class="text-center space-y-8 px-2">
+                <p class="font-serif text-xl text-[#0A192F] font-semibold leading-snug">
+                    상장 기념 주주모임에 참석해 주셔서<br>진심으로 감사드립니다.
+                </p>
+                <!-- 줄 간격을 시원하게(line-height: 9) 띄우고 깔끔하게 양끝을 맞춤 정렬하여 가독성 업그레이드 -->
+                <div class="text-sm text-stone-600 leading-9 text-justify font-light max-w-[420px] mx-auto break-keep">
+                    우리 회사의 코스닥 상장 소식을 함께 기념하며, 그간의 상장 성과를 투명하게 공유하고 주주 여러분과의 소통을 더욱 강화하고자 소중한 주주모임 자리를 마련하여 초대드립니다.
+                </div>
+            </section>
+
+            <!-- 우아한 금빛 구분선 1 -->
+            <div class="gold-divider">
+                <div class="gold-diamond"></div>
+            </div>
+
+            <!-- 일시 및 장소 안내 섹션 (아이콘과 부드러운 음영) -->
+            <section class="space-y-6">
+                <h2 class="font-serif text-lg text-[#0A192F] font-bold flex items-center gap-3">
+                    <span class="w-1 h-5 bg-gradient-to-b from-[#F3E7C4] to-[#AA7C11] inline-block rounded-sm"></span> 
+                    모임 안내 정보
+                </h2>
+                <!-- 부드러운 화이트 보드를 닮은 안내 카드 -->
+                <div class="premium-card p-6 md:p-8 space-y-6">
+                    <!-- 일시 정보 카드 -->
+                    <div class="flex items-start gap-5">
+                        <!-- 달력 모양 아이콘의 배경을 은은한 네이비 톤으로 세팅 -->
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#0A192F]/5 to-[#0A192F]/10 flex items-center justify-center shrink-0 text-[#0A192F] border border-stone-200/50 shadow-sm">
+                            <i class="fa-regular fa-calendar-days text-base"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-stone-400 font-medium tracking-wider">일시</p>
+                            <p class="text-base font-semibold text-stone-800 mt-1">2026년 6월 10일 (수) 오전 10시</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 구분용 미세 실선 -->
+                    <div class="h-[1px] bg-stone-100 w-full"></div>
+                    
+                    <!-- 장소 정보 카드 -->
+                    <div class="flex items-start gap-5">
+                        <!-- 핀 모양 아이콘 배경 세팅 -->
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#0A192F]/5 to-[#0A192F]/10 flex items-center justify-center shrink-0 text-[#0A192F] border border-stone-200/50 shadow-sm">
+                            <i class="fa-solid fa-location-dot text-base"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-stone-400 font-medium tracking-wider">장소</p>
+                            <!-- 모바일 기기에서도 주소가 길게 어긋나지 않도록 줄바꿈 가공 처리 -->
+                            <p class="text-base font-semibold text-stone-800 mt-1 leading-relaxed">
+                                서울시 금천구 가산디지털2로 67,<br class="block sm:hidden"> 
+                                에이스하이엔드7차 1402호 회의실
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 우아한 금빛 구분선 2 -->
+            <div class="gold-divider">
+                <div class="gold-diamond"></div>
+            </div>
+
+            <!-- 모임 안건 섹션 (우아한 호버 카드로 가시성 향상) -->
+            <section class="space-y-6">
+                <h2 class="font-serif text-lg text-[#0A192F] font-bold flex items-center gap-3">
+                    <span class="w-1 h-5 bg-gradient-to-b from-[#F3E7C4] to-[#AA7C11] inline-block rounded-sm"></span> 
+                    모임 안건
+                </h2>
+                <div class="space-y-4">
+                    <!-- 제 1호 의안 카드 -->
+                    <div class="premium-card p-5 hover:border-[#C5A880]/60">
+                        <span class="text-xs font-semibold text-[#AA7C11] uppercase tracking-wider block mb-1.5">제 1호 의안</span>
+                        <p class="text-sm font-medium text-stone-800 leading-relaxed">주식회사 제니트리 회사 연혁 및 김은주 대표님 인사말씀</p>
+                    </div>
+                    <!-- 제 2호 의안 카드 -->
+                    <div class="premium-card p-5 hover:border-[#C5A880]/60">
+                        <span class="text-xs font-semibold text-[#AA7C11] uppercase tracking-wider block mb-1.5">제 2호 의안</span>
+                        <p class="text-sm font-medium text-stone-800 leading-relaxed">주식회사 제니트리 상장 성과 발표</p>
+                    </div>
+                    <!-- 제 3호 의안 카드 -->
+                    <div class="premium-card p-5 hover:border-[#C5A880]/60">
+                        <span class="text-xs font-semibold text-[#AA7C11] uppercase tracking-wider block mb-1.5">제 3호 의안</span>
+                        <p class="text-sm font-medium text-stone-800 leading-relaxed">주주와의 소통 강화 관련</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 우아한 금빛 구분선 3 -->
+            <div class="gold-divider">
+                <div class="gold-diamond"></div>
+            </div>
+
+            <!-- 오시는 길 및 지도 연동 섹션 (안내 박스 고도화 및 핀 바운스 장식) -->
+            <section class="space-y-6">
+                <h2 class="font-serif text-lg text-[#0A192F] font-bold flex items-center gap-3">
+                    <span class="w-1 h-5 bg-gradient-to-b from-[#F3E7C4] to-[#AA7C11] inline-block rounded-sm"></span> 
+                    오시는 길
+                </h2>
+                <!-- 가벼운 미색과 부드러운 격자 무늬가 들어간 맵 플레이스홀더 -->
+                <div class="w-full h-52 bg-gradient-to-br from-[#FAF9F6] to-[#EAE6DF] rounded-xl relative overflow-hidden flex items-center justify-center border border-stone-300/60 shadow-inner">
+                    <div class="absolute inset-0 bg-[linear-gradient(rgba(197,168,128,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(197,168,128,0.06)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                    <!-- 반투명하고 흐릿한(backdrop-blur) 럭셔리 라벨 박스 -->
+                    <div class="text-center z-10 p-6 bg-white/90 backdrop-blur-sm rounded-xl border border-[#C5A880]/30 shadow-md max-w-[90%]">
+                        <p class="text-sm font-semibold text-stone-800 flex items-center justify-center gap-2">
+                            <!-- 방방 뛰는 핀 아이콘 장식 효과 -->
+                            <i class="fa-solid fa-map-location-dot text-[#AA7C11] text-lg animate-bounce"></i>
+                            본사 회의실 (14F)
+                        </p>
+                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">
+                            서울시 금천구 가산디지털2로 67, 에이스하이엔드7차 1402호
+                        </p>
+                    </div>
+                </div>
+                <!-- 하단 지도 바로가기 버튼들 -->
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="https://map.kakao.com" target="_blank" class="flex items-center justify-center gap-2 py-3.5 border border-stone-200/80 rounded-xl text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 hover:border-stone-300 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-navigation text-yellow-500 text-sm"></i> 카카오맵으로 보기
+                    </a>
+                    <a href="https://maps.google.com" target="_blank" class="flex items-center justify-center gap-2 py-3.5 border border-stone-200/80 rounded-xl text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 hover:border-stone-300 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-map text-blue-500 text-sm"></i> 구글 지도로 보기
+                    </a>
+                </div>
+            </section>
+
+            <!-- 우아한 금빛 구분선 4 -->
+            <div class="gold-divider">
+                <div class="gold-diamond"></div>
+            </div>
+
+            <!-- 3. 참석 여부 회신 폼 영역 (배경 박스 톤 다듬기) -->
+            <section class="space-y-6 bg-[#FAF9F6] p-6 md:p-8 rounded-2xl border border-[#C5A880]/20 shadow-md">
+                <div class="text-center mb-6">
+                    <h2 class="font-serif text-xl text-[#0A192F] font-bold">참석 여부 회신</h2>
+                    <p class="text-xs text-stone-500 mt-2 leading-relaxed">원활한 모임 준비와 예약을 위해 참석 여부를 알려주시면 감사하겠습니다.</p>
+                </div>
+                <!-- RSVP 폼 (제출 시 기존 자바스크립트 함수 실행) -->
+                <form id="rsvpForm" class="space-y-5" onsubmit="submitRSVP(event)">
+                    <!-- 주주명 텍스트 인풋 -->
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 mb-2 tracking-wider">주주명</label>
+                        <input type="text" required class="premium-input w-full p-3.5 rounded-xl text-sm placeholder-stone-400 focus:ring-0" placeholder="성명을 입력해 주세요.">
+                    </div>
+                    <!-- 참석 여부 선택 라디오 버튼 -->
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 mb-2 tracking-wider font-serif">참석 여부 선택</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- 참석 버튼 -->
+                            <label class="premium-radio-label flex items-center justify-center gap-2.5 py-4 rounded-xl text-sm font-medium cursor-pointer shadow-sm">
+                                <input type="radio" name="attendance" value="참석" required class="accent-[#0A192F] w-4 h-4"> 참석
+                            </label>
+                            <!-- 불참 버튼 -->
+                            <label class="premium-radio-label flex items-center justify-center gap-2.5 py-4 rounded-xl text-sm font-medium cursor-pointer shadow-sm">
+                                <input type="radio" name="attendance" value="불참" class="accent-[#0A192F] w-4 h-4"> 불참 (위임)
+                            </label>
+                        </div>
+                    </div>
+                    <!-- 최종 회신 제출하기 버튼 -->
+                    <button type="submit" class="btn-premium w-full text-white py-4 rounded-xl font-semibold text-sm mt-3 tracking-widest">
+                        회신서 제출하기
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <!-- 4. 푸터 영역 (단정하고 고급진 회색 배경 마무리) -->
+        <footer class="bg-[#F6F5F2] text-stone-500 text-center py-10 px-8 text-xs border-t border-stone-200/50 space-y-3">
+            <p class="font-serif text-stone-800 font-semibold text-sm tracking-wider">주식회사 제니트리 이사회</p>
+            <p class="font-light">문의처: 경영지원본부 주식담당 (<span class="underline underline-offset-2">02-1234-5678</span>)</p>
+            <!-- 앙증맞은 구분선 -->
+            <div class="w-8 h-[1px] bg-stone-300 mx-auto my-3"></div>
+            <p class="text-[10px] text-stone-400 tracking-wider">© 2026 JANYTREE Co., Ltd. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <!-- RSVP 제출 팝업 자바스크립트 함수 (기존 기능 그대로 복구 및 완벽 보존) -->
+    <script>
+        function submitRSVP(event) {
+            event.preventDefault();
+            alert("정중히 접수되었습니다. 주주총회에 관심을 가져주셔서 대단히 감사합니다.");
+            document.getElementById("rsvpForm").reset(); // 제출 후 작성 폼 초기화
         }
     </script>
-</head>
-<body class="bg-background text-on-surface selection:bg-secondary selection:text-on-secondary font-body-md">
-<div class="gold-frame-wrapper">
-<div class="gold-frame-inner">
-<!-- Decorative Corners -->
-<div class="gold-frame-corner corner-tl"></div>
-<div class="gold-frame-corner corner-tr"></div>
-<div class="gold-frame-corner corner-bl"></div>
-<div class="gold-frame-corner corner-br"></div>
-<!-- TopAppBar -->
-<header class="w-full top-0 sticky z-50 border-b border-secondary/20 bg-background/90 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16">
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary" data-icon="menu">menu</span>
-</div>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary uppercase tracking-widest text-lg">INVITATION</h1>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-secondary" data-icon="account_gold_leaf">account_tree</span>
-</div>
-</header>
-<main class="max-w-[600px] mx-auto overflow-x-hidden pb-12">
-<!-- Hero Section -->
-<section class="relative h-[450px] w-full flex flex-col items-center justify-center px-margin-mobile text-center">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover grayscale opacity-30" data-alt="Corporate architectural skyscraper at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGZw6qEtDfZEy5zEdL5GvfveaxwXWc5X2OolYy54W2b6nz3nZKgAojvLTZBxaRkuokPh3hrhOHt9ji8FyF7jwZUrHBOxTx0BDI1pHzTNXOyp1Nk72DtDbnEfGFJxh0hpcGrSWwpDvH0QAkmCzOsRWL1fYcMxFcF5lyQxVK8AyAn66zDph8FTR29xq-HnC4tKuSrca77_Uq2fSZAoHKtviKZX8e0Sc3Q42qliE_uv6f6teKkM8YfdCup9n8EJjdxi4cynrKahsfYtE">
-<div class="absolute inset-0 navy-overlay"></div>
-<div class="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none">
-<img alt="Janytree Watermark Logo" class="w-64 h-64 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArvMXlzdQ2KRvwPqPgLR40HsOL8qR5AIwZxg3Wyqhm4McjFju7qKYGAu_VWqehFvFbINMTjcte4iO1hISUaUlGmM4OoawBQ-9gA3dEBbnwopRgWFzCG8pJn8ob3spVOsgBfYuC_P_ps-0xSCef1fBJuKNviugLQnFYLjuL0cfQuhYFf7y7BlOHIqXDQQFzQlTWsZLRNvYWHVgRZRbAk6XppmoTDw8QzTxyISct-8ROlyVGCMi0wKPbmfzovDK1ncEDNnv5MiXSGco">
-</div></div>
-<div class="z-10 animate-fade-in-up">
-<div class="mb-6 flex justify-center">
-<span class="border border-secondary/40 px-3 py-1 font-label-caps text-label-caps text-secondary tracking-[0.2em]">KOSDAQ LISTED</span>
-</div>
-<h2 class="font-headline-lg-mobile text-headline-lg-mobile gold-foil-text mb-4 leading-tight italic" style="background-position: 18.9744% 14.8731%;">
-                        [초청장]<br>주식회사 제니트리 코스닥 상장 기념 주주모임
-                    </h2>
-<div class="etched-divider w-24 mx-auto my-6"></div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto leading-relaxed">
-                        주주님들의 아낌없는 성원과 신뢰에
-                    <div class="">깊은 감사를 드립니다.</div></p>
-</div>
-</section>
-<!-- Message Body -->
-<section class="py-section-gap px-margin-mobile bg-surface-container-lowest">
-<div class="text-center space-y-6">
-<p class="font-body-lg text-body-lg text-on-surface leading-loose">주주님의 변함없는 신뢰와 성원 덕분에 제니트리가
-    코스닥 상장이라는 뜻깊은 결실을 맺게 되었습니다.
-
-    그간의 지지에 감사하며 새로운 도약과 비전을 공유하는
-    축하의 자리에 주주님을 정중히 모십니다.</p>
-<div class="flex justify-center items-center gap-4 py-8">
-<div class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-secondary/30"></div>
-<span class="material-symbols-outlined text-secondary" data-icon="star" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<div class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-secondary/30"></div>
-</div>
-<div class="space-y-8 text-left max-w-[320px] mx-auto">
-<div class="flex flex-col gap-2">
-<span class="font-label-caps text-label-caps text-secondary">EVENT</span>
-<h3 class="font-body-lg text-body-lg font-bold border-l-2 border-secondary pl-4 italic">코스닥 상장 기념 주주모임 및 다과회</h3>
-</div>
-<div class="flex flex-col gap-2">
-<span class="font-label-caps text-label-caps text-secondary">DATE &amp; TIME</span>
-<div class="flex items-center gap-3 pl-4">
-<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="calendar_today">calendar_today</span>
-<span class="font-body-md text-body-md">2026년 7월 7일 (화) 오전 10시</span>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<span class="font-label-caps text-label-caps text-secondary">LOCATION</span>
-<div class="flex items-center gap-3 pl-4">
-<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="location_on">location_on</span>
-<span class="font-body-md text-body-md">서울시 금천구 가산디지털2로67, 에이스하이엔드7차 1403호 회의실</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Map/Location Visualization -->
-<section class="px-margin-mobile py-10">
-<div class="relative w-full h-48 overflow-hidden embossed-border group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Dark themed map visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATRIqNlMj0XtB3UwbRcwFal1DZocGLS7NcvR0vS3aZ8KYz-98syb0bPOAB4lNn8DZbVgJrRqQuJo_5cD0GBcBTSwTWZZI-F-SPPZMAPlwoQfzpvDLh9JQyK2vZL6Hu_CThpLOmqYRkmJ-BhNNLMjyPqyUI_2mcMHtGLGvIqZWjGs80BhV7hl46erOfXL2qRaYOAZXz_D-8mbh-JrwbwtkY6L9bVTOT38WN9rvVjDgS3nGIdcZV0L2iDYynXa6_RcJWb19nBhBjgVs">
-<div class="absolute inset-0 bg-background/40"></div>
-<div class="absolute bottom-4 left-4">
-    
-    <a href="https://map.naver.com/p/entry/place/13299211?placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202606011708&locale=ko&svcName=map_pcv5" target="_blank" class="bg-background/80 backdrop-blur-sm border border-secondary/50 px-4 py-2 flex items-center gap-2 hover:bg-secondary hover:text-on-secondary transition-all inline-block">
-        <span class="material-symbols-outlined text-sm" data-icon="map">map</span>
-        <span class="font-label-caps text-[10px] tracking-widest">VIEW MAP</span>
-    </a>
-    </div>
-</div>
-</section>
-<!-- RSVP Action -->
-<section class="py-section-gap px-margin-mobile text-center">
-<div class="mb-8">
-<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">PLEASE CONFIRM YOUR ATTENDANCE</span>
-<p class="font-body-md text-body-md opacity-60">원활한 행사 준비를 위해 참석 여부를 회신해주시면 감사하겠습니다.</p>
-</div>
-<button class="w-full bg-secondary text-on-secondary font-button-text text-button-text py-5 px-8 uppercase tracking-[0.2em] gold-glow active:scale-95 transition-all duration-300" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
-                    참석 예약하기
-                </button>
-<div class="mt-8 flex justify-center items-center gap-4">
-<span class="font-label-caps text-[10px] text-secondary/60">VOTING POWER CONFIRMED</span>
-<span class="w-1.5 h-1.5 rounded-full bg-secondary/60"></span>
-<span class="font-label-caps text-[10px] text-secondary/60">MAJOR HOLDER EXCLUSIVE</span>
-</div>
-</section>
-<!-- Footer -->
-<footer class="w-full py-section-gap px-margin-mobile border-t border-gradient-to-r from-transparent via-secondary to-transparent flex flex-col items-center text-center space-y-4">
-<span class="font-label-caps text-label-caps text-secondary">WWW.JANYTREE.COM</span>
-<p class="font-body-md text-body-md text-on-surface-variant">© 2026 JANYTREE Co. ALL RIGHTS RESERVED.</p>
-<div class="flex gap-6 mt-4">
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-sm underline italic" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-sm underline italic" href="#">Contact Support</a>
-</div>
-</footer>
-</main>
-</div>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const rsvpBtn = document.querySelector('button.w-full');
-        rsvpBtn.style.opacity = '0';
-        rsvpBtn.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            rsvpBtn.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-            rsvpBtn.style.opacity = '1';
-            rsvpBtn.style.transform = 'translateY(0)';
-        }, 500);
-    });
-
-    document.addEventListener('mousemove', (e) => {
-        const goldTexts = document.querySelectorAll('.gold-foil-text');
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        goldTexts.forEach(text => {
-            text.style.backgroundPosition = `${x * 100}% ${y * 100}%`;
-        });
-    });
-</script>
-
-
-</body></html>
+</body>
+</html>
