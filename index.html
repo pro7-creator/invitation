@@ -68,9 +68,7 @@
         };
     </script>
     <style>
-        /* Import Google Font for Plus Jakarta Sans */
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-        /* Import Google Font for Sora, Inter, Space Grotesk */
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;600;700&display=swap');
         
         body {
@@ -79,151 +77,179 @@
             background-color: #f4f5f7;
             display: flex;
             justify-content: center;
-            min-h-screen;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
         }
 
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
 
-        /* Ambient Glow for numbers */
-        .glass-glow {
-            text-shadow: 0 0 15px rgba(0, 75, 116, 0.2);
-            transition: text-shadow 0.8s ease;
-        }
-        .dark .glass-glow {
-            text-shadow: 0 0 15px rgba(186, 233, 255, 0.4);
-        }
-
-        /* Ocean Wave Animation */
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .animate-wave-slow { animation: wave 25s linear infinite; }
-        .animate-wave-medium { animation: wave 18s linear infinite reverse; }
-        .animate-wave-fast { animation: wave 12s linear infinite; }
-
-        @media (prefers-reduced-motion: reduce) {
-            .ocean-wave { animation: none !important; }
-        }
-
-        .calculator-3d-card {
-            box-shadow: 
-                0 30px 60px rgba(0, 31, 42, 0.15),
-                0 15px 25px rgba(0, 31, 42, 0.1),
-                inset 0 1px 1px rgba(255, 255, 255, 0.9),
-                inset 0 -4px 12px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            max-height: 90vh;
-            transition: background-color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
-        }
-
-        .dark .calculator-3d-card {
-            box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.4),
-                0 15px 25px rgba(0, 0, 0, 0.3),
-                inset 0 1px 1px rgba(255, 255, 255, 0.1),
-                inset 0 -4px 12px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Neumorphic buttons - Light */
-        .btn-neumorphic-white {
-            box-shadow: 6px 6px 12px #c9e7f7, -6px -6px 12px #ffffff;
-            transition: all 0.3s ease;
-        }
-        .btn-neumorphic-white:active {
-            box-shadow: inset 4px 4px 8px #c9e7f7, inset -4px -4px 8px #ffffff;
-            transform: scale(0.98);
-        }
-
-        /* Neumorphic buttons - Dark */
-        .dark .btn-neumorphic-white {
-            background-color: #1e293b !important;
-            color: #e2e8f0 !important;
-            box-shadow: 6px 6px 12px #0f172a, -4px -4px 10px rgba(255,255,255,0.05);
-        }
-        .dark .btn-neumorphic-white:active {
-            box-shadow: inset 4px 4px 8px #0f172a, inset -2px -2px 6px rgba(255,255,255,0.05);
-        }
-
-        .btn-neumorphic-primary {
-            box-shadow: 6px 6px 12px rgba(0, 31, 42, 0.2), -2px -2px 6px rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        .btn-neumorphic-primary:active {
-            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -2px -2px 6px rgba(255, 255, 255, 0.1);
-            transform: scale(0.98);
-        }
-        
-        .dark .btn-neumorphic-primary {
-            background-color: #334155 !important;
-            color: #94a3b8 !important;
-            box-shadow: 6px 6px 12px #0f172a, -2px -2px 6px rgba(255,255,255,0.05);
-        }
-
-        .btn-calc-text {
-            font-size: clamp(1.25rem, 6vw, 2.25rem);
-            font-weight: 700;
-        }
-
-        .weather-transition {
-            transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease, backdrop-filter 0.8s ease;
-        }
-
-        /* Toggle Switch Styling */
-        .weather-toggle-container {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 9999px;
-            padding: 2px;
-            display: flex;
-            align-items: center;
-            gap: 2px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .dark .weather-toggle-container {
-            background: rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        .toggle-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .toggle-btn.active {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .dark .toggle-btn.active {
-            background: #475569;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        /* Invitation Specific Styles */
         .neon-glow { text-shadow: 0 2px 4px rgba(255, 45, 120, 0.1); }
         .secondary-glow { text-shadow: 0 1px 2px rgba(0, 128, 102, 0.1); }
         .thin-gold-border { border: 0.5px solid rgba(102, 82, 0, 0.2); }
         .gold-gradient-divider { height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(102, 82, 0, 0.3) 50%, transparent 100%); }
         .glass-panel { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
-        /* 💡 고급스러운 금색 테두리 스타일을 추가했습니다 */
         .premium-gold-border {
-            border: 2.5px solid rgba(255, 224, 74, 0.8); /* 더 굵고 불투명한 금색 테두리 */
-            box-shadow: 0 0 15px rgba(255, 224, 74, 0.3); /* 은은한 금빛 광채 추가 */
+            border: 3px solid #dec485; 
+            box-shadow: 0 0 20px rgba(222, 196, 133, 0.2); 
+        }
+
+        .gold-silk-gradient {
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+
+        .ribbon-vertical { position: absolute; left: 55px; top: 0; width: 24px; height: 100%; z-index: 30; pointer-events: none; }
+        .ribbon-horizontal { position: absolute; left: 0; top: 210px; width: 100%; height: 24px; z-index: 30; pointer-events: none; }
+        .ribbon-bow-wrap { position: absolute; left: 43px; top: 198px; width: 48px; height: 48px; z-index: 40; pointer-events: none; }
+        .bow-center { position: absolute; left: 16px; top: 16px; width: 16px; height: 16px; border-radius: 4px; z-index: 45; }
+        .bow-left { position: absolute; right: 26px; top: 10px; width: 26px; height: 26px; border-radius: 50% 50% 0 50%; transform: rotate(-15deg); }
+        .bow-right { position: absolute; left: 26px; top: 10px; width: 26px; height: 26px; border-radius: 50% 50% 50% 0; transform: rotate(15deg); }
+        .tail-left { position: absolute; left: 2px; top: 34px; width: 16px; height: 28px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%); transform: rotate(25deg); }
+        .tail-right { position: absolute; right: 2px; top: 34px; width: 16px; height: 28px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%); transform: rotate(-25deg); }
+
+        /* ==========================================
+           ⭐ 새로 주입된 3D 편지봉투 오픈 애니메이션 CSS
+           ========================================== */
+        #envelope-container {
+            perspective: 1500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background-color: #f4f5f7;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        /* 편지 봉투 몸통 본체 */
+        .envelope {
+            position: relative;
+            width: 380px;
+            height: 260px;
+            background-color: #ffffff;
+            border: 2px solid #dec485;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* 봉투 아래쪽 덮개 날개 모양 (삼각형) */
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 260px 376px;
+            border-color: transparent transparent #fbfbfe transparent;
+            z-index: 2;
+            border-radius: 0 0 8px 8px;
+        }
+        .envelope::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 376px 260px 0;
+            border-color: transparent transparent rgba(240, 235, 220, 0.6) transparent;
+            z-index: 2;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* 봉투 윗뚜껑 날개 (위로 열림) */
+        .envelope-flap {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 380px;
+            height: 140px;
+            background-color: #ffffff;
+            border: 2px solid #dec485;
+            border-bottom: none;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            transform-origin: top center;
+            transition: transform 0.6s ease-in-out;
+            z-index: 3;
+        }
+
+        /* 고급 금색 왁스 실 인장 구역 */
+        .wax-seal {
+            position: absolute;
+            top: 115px;
+            left: 160px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fcf6ba 0%, #b38728 70%, #aa771c 100%);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.4);
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #665200;
+            font-weight: bold;
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: opacity 0.4s ease;
+        }
+
+        /* 💡 애니메이션 발동 스위치 클래스 */
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1; /* 열린 뒤 뒤로 배치 */
+        }
+        .envelope.open .wax-seal {
+            opacity: 0;
+        }
+
+        /* 숨겨진 실제 메인 초청장 카드 (처음엔 대기) */
+        #main-card {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 1s cubic-bezier(0.1, 0.8, 0.2, 1), transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+        }
+        #main-card.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body class="font-body text-on-surface">
 
-    <div class="w-full max-w-[600px] bg-[#ffffff] shadow-2xl relative flex flex-col justify-between border-x border-outline-variant/10 premium-gold-border">
+    <div id="envelope-container" onclick="openInvitation()">
+        <div class="flex flex-col items-center gap-6">
+            <div class="envelope" id="envelope-body">
+                <div class="envelope-flap"></div>
+                <div class="wax-seal font-display">JANY</div>
+            </div>
+            <p class="font-display text-[13px] text-tertiary font-bold tracking-widest uppercase animate-pulse">봉투를 터치하면 초대장이 열립니다</p>
+        </div>
+    </div>
+
+    <div id="main-card" class="w-full max-w-[600px] bg-[#ffffff] shadow-2xl relative flex flex-col justify-between border-x border-outline-variant/10 premium-gold-border my-6">
+
+        <div class="ribbon-vertical gold-silk-gradient"></div>
+        <div class="ribbon-horizontal gold-silk-gradient"></div>
+        <div class="ribbon-bow-wrap">
+            <div class="bow-center gold-silk-gradient"></div>
+            <div class="bow-left gold-silk-gradient"></div>
+            <div class="bow-right gold-silk-gradient"></div>
+            <div class="tail-left gold-silk-gradient"></div>
+            <div class="tail-right gold-silk-gradient"></div>
+        </div>
 
         <header class="flex justify-between items-center px-container-margin h-14 w-full max-w-[600px] z-50 fixed top-0 bg-white/80 backdrop-blur-xl border-b-[0.5px] border-outline-variant/10">
             <div class="flex items-center gap-2">
@@ -255,9 +281,9 @@
                 </div>
             </section>
 
-            <section class="px-container-margin py-6 text-center relative">
-                <div class="max-w-md mx-auto">
-                    <h4 class="font-display text-[17px] font-semibold text-secondary mb-4 leading-relaxed">함께 이룬 상장,<br>감사의 자리에 초대합니다.</h4>
+            <section class="px-container-margin coding-patch pl-24 py-6 text-left relative">
+                <div class="max-w-md">
+                    <h4 class="font-display text-[17px] font-semibold text-secondary mb-4 leading-relaxed break-keep">함께 이룬 상장,<br>감사의 자리에 초대합니다.</h4>
                     <div class="gold-gradient-divider my-6"></div>
                     <p class="font-body text-on-surface-variant leading-relaxed text-[13px] break-keep">
                         정성 어린 시간들이 모여 오늘의 뜻깊은 결실을 맺었습니다.<br>
@@ -396,6 +422,27 @@
     <script>
     const SUPABASE_URL = 'https://zjzkruizhgivdjfqxchvm.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_82woQaHS9KHd3RdEufAx5A_Q-fGZYNh'; 
+
+    // 💡 [새로 추가된 편지 오픈 트리거 스크립트]
+    function openInvitation() {
+        const envelope = document.getElementById('envelope-body');
+        const container = document.getElementById('envelope-container');
+        const mainCard = document.getElementById('main-card');
+
+        // 1. 봉투 뚜껑을 여는 모션 작동
+        envelope.classList.add('open');
+
+        // 2. 뚜껑이 절반쯤 열렸을 때 본문 카드 스르륵 등장
+        setTimeout(() => {
+            mainCard.classList.add('show');
+        }, 400);
+
+        // 3. 연출 완료 후 편지봉투 배경 차단막을 서서히 제거
+        setTimeout(() => {
+            container.style.opacity = '0';
+            container.style.visibility = 'hidden';
+        }, 1200);
+    }
 
     async function submitRSVP(event) {
         event.preventDefault();
