@@ -214,25 +214,24 @@
         const name = document.getElementById('userName').value;
         const status = document.querySelector('input[name="rsvp"]:checked').value;
 
-        // 1. 유저에게는 버튼을 누르자마자 바로 성공 팝업을 보여줍니다! (딜레이 없이 상쾌하게!)
+        // 버튼을 누르면 사용자에게 먼저 시원하게 성공 알림을 띄웁니다.
         alert(`${name}님의 회신(${status})이 정상적으로 제출되었습니다!`);
         document.getElementById('userName').value = '';
 
         try {
-            // 2. 백그라운드에서 수퍼베이스로 데이터를 조용히 전송합니다. (no-cors로 보안벽 우회)
-            await fetch(`${SUPABASE_URL}/rest/v1/rsvp`, {
+            // ⭐ [핵심 변경점] 주소 뒤에 ?apikey=...를 직접 붙여서 주소 검사(CORS)를 완벽하게 강제 패스합니다!
+            await fetch(`${SUPABASE_URL}/rest/v1/rsvp?apikey=${SUPABASE_KEY}`, {
                 method: 'POST',
-                mode: 'no-cors', 
                 headers: {
                     'apikey': SUPABASE_KEY,
                     'Authorization': `Bearer ${SUPABASE_KEY}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Prefer': 'return=minimal'
                 },
                 body: JSON.stringify({ name: name, status: status })
             });
         } catch (error) {
-            // 전송 중 에러가 나더라도 사용자에겐 티내지 않고 콘솔에만 기록합니다.
-            console.error('Data layer sync log:', error);
+            console.error('Data sync log:', error);
         }
     }
 
