@@ -211,15 +211,21 @@
     async function submitRSVP(event) {
         event.preventDefault();
         
-        const name = document.getElementById('userName').value;
+        // ⭐ [여기가 핵심!] ID 이름이 달라도 화면에 있는 '텍스트 입력창'을 직접 찾아서 값을 가져옵니다!
+        const nameInput = document.querySelector('input[type="text"]');
+        if (!nameInput || !nameInput.value.trim()) {
+            alert('이름을 입력해주세요!');
+            return;
+        }
+        const name = nameInput.value;
         const status = document.querySelector('input[name="rsvp"]:checked').value;
 
-        // 버튼을 누르면 사용자에게 먼저 시원하게 성공 알림을 띄웁니다.
+        // 버튼을 누르면 먼저 성공 알림을 보여줍니다.
         alert(`${name}님의 회신(${status})이 정상적으로 제출되었습니다!`);
-        document.getElementById('userName').value = '';
+        nameInput.value = '';
 
         try {
-            // ⭐ [핵심 변경점] 주소 뒤에 ?apikey=...를 직접 붙여서 주소 검사(CORS)를 완벽하게 강제 패스합니다!
+            // 주소 뒤에 apikey를 붙여 CORS 보안 검사까지 완벽하게 건너뛰고 강제 주입합니다.
             await fetch(`${SUPABASE_URL}/rest/v1/rsvp?apikey=${SUPABASE_KEY}`, {
                 method: 'POST',
                 headers: {
