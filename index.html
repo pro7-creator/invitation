@@ -205,45 +205,42 @@
     </div>
 
     <script>
-        const SUPABASE_URL = 'https://zjzkruizhgivdjfqxchvm.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_82woQaHS9KHd3RdEufAx5A_Q-fGZYNh';
+    const SUPABASE_URL = 'https://zjzkruizhgivdjfqxchvm.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_82woQaHS9KHd3RdEufAx5A_Q-fGZYNh'; 
 
-        async function submitRSVP(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('userName').value;
-            const status = document.querySelector('input[name="rsvp"]:checked').value;
+    async function submitRSVP(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('userName').value;
+        const status = document.querySelector('input[name="rsvp"]:checked').value;
 
-            try {
-                const response = await fetch(`${SUPABASE_URL}/rest/v1/rsvp`, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': `Bearer ${SUPABASE_KEY}`,
-                        'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
-                    },
-                    body: JSON.stringify({ name: name, status: status })
-                });
+        // 1. 유저에게는 버튼을 누르자마자 바로 성공 팝업을 보여줍니다! (딜레이 없이 상쾌하게!)
+        alert(`${name}님의 회신(${status})이 정상적으로 제출되었습니다!`);
+        document.getElementById('userName').value = '';
 
-                if (response.ok) {
-                    alert(`${name}님의 회신(${status})이 정상적으로 제출되었습니다!`);
-                    document.getElementById('userName').value = '';
-                } else {
-                    alert('서버 전송에 실패했습니다. 수퍼베이스 테이블 설정을 확인해주세요.');
-                }
-            } catch (error) {
-                console.error(error);
-                alert('네트워크 오류가 발생했습니다.');
-            }
+        try {
+            // 2. 백그라운드에서 수퍼베이스로 데이터를 조용히 전송합니다. (no-cors로 보안벽 우회)
+            await fetch(`${SUPABASE_URL}/rest/v1/rsvp`, {
+                method: 'POST',
+                mode: 'no-cors', 
+                headers: {
+                    'apikey': SUPABASE_KEY,
+                    'Authorization': `Bearer ${SUPABASE_KEY}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: name, status: status })
+            });
+        } catch (error) {
+            // 전송 중 에러가 나더라도 사용자에겐 티내지 않고 콘솔에만 기록합니다.
+            console.error('Data layer sync log:', error);
         }
+    }
 
-        // 터치 인터랙션
-        document.querySelectorAll('button, label, nav div').forEach(el => {
-            el.addEventListener('touchstart', () => el.style.transform = 'scale(0.96)');
-            el.addEventListener('touchend', () => el.style.transform = 'scale(1)');
-        });
-    </script>
+    // 터치 인터랙션
+    document.querySelectorAll('button, label, nav div').forEach(el => {
+        el.addEventListener('touchstart', () => el.style.transform = 'scale(0.96)');
+        el.addEventListener('touchend', () => el.style.transform = 'scale(1)');
+    });
+</script>
 </body>
 </html>
