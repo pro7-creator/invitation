@@ -4,86 +4,226 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>KOSDAQ LISTING CELEBRATION - JANYTREE</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            // 💡 밝고 고급스러운 라이트 테마 컬러로 전면 재설정했습니다
-            "colors": {
-                "on-error": "#ffffff", 
-                "on-tertiary-container": "#241a00", 
-                "on-surface": "#1c1b1f", 
-                "inverse-on-surface": "#f4eff4", 
-                "tertiary-container": "#fff0c0", 
-                "error-container": "#f9dedc", 
-                "surface": "#fdf8fd", 
-                "surface-container-low": "#f7f2fa", 
-                "on-tertiary-fixed-variant": "#4f3d00", 
-                "background": "#f5f5f7", 
-                "surface-container-highest": "#e6e1e5", 
-                "surface-tint": "#ff2d78", 
-                "outline": "#79747e", 
-                "error": "#ba1a1a", 
-                "surface-bright": "#fffbfe", 
-                "on-error-container": "#410e0b", 
-                "on-secondary-fixed": "#002019", 
-                "on-primary": "#ffffff", 
-                "surface-variant": "#e7e0ec", 
-                "primary-fixed": "#ffe0ec", 
-                "secondary-container": "#c0fff4", 
-                "surface-container-lowest": "#ffffff", 
-                "tertiary": "#665200", 
-                "primary": "#ff2d78", 
-                "on-tertiary-fixed": "#241a00", 
-                "outline-variant": "#c4c6d0", 
-                "on-primary-fixed-variant": "#8c0038", 
-                "secondary": "#008066", 
-                "inverse-primary": "#ffb1c8", 
-                "surface-dim": "#ded8e1", 
-                "surface-container": "#f3edf7", 
-                "on-surface-variant": "#49454f", 
-                "on-primary-container": "#3d0020", 
-                "on-secondary-fixed-variant": "#00503e", 
-                "secondary-fixed": "#c0fff4", 
-                "on-secondary-container": "#002019", 
-                "on-background": "#1c1b1f", 
-                "inverse-surface": "#313033", 
-                "tertiary-fixed": "#fff0c0", 
-                "primary-container": "#ffe0ec", 
-                "on-tertiary": "#ffffff", 
-                "tertiary-fixed-dim": "#ffe04a", 
-                "secondary-fixed-dim": "#00e6b8", 
-                "on-primary-fixed": "#3d0020", 
-                "on-secondary": "#ffffff", 
-                "surface-container-high": "#ece6f0", 
-                "primary-fixed-dim": "#ff80aa"
-            },
-            "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
-            "fontFamily": { "headline": ["Sora"], "display": ["Sora"], "body": ["Inter"], "label": ["Space Grotesk"] },
-            "spacing": { "container-margin": "20px", "element-gap": "12px", "section-gap": "28px", "stack-tight": "6px", "inline-gutter": "10px" }
-          },
-        },
-      }
+        tailwind.config = {
+            darkMode: "class", 
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error": "#ffffff", 
+                        "on-tertiary-container": "#241a00", 
+                        "on-surface": "#1c1b1f", 
+                        "inverse-on-surface": "#f4eff4", 
+                        "tertiary-container": "#fff0c0", 
+                        "error-container": "#f9dedc", 
+                        "surface": "#fdf8fd", 
+                        "surface-container-low": "#f7f2fa", 
+                        "on-tertiary-fixed-variant": "#4f3d00", 
+                        "background": "#f5f5f7", 
+                        "surface-container-highest": "#e6e1e5", 
+                        "surface-tint": "#ff2d78", 
+                        "outline": "#79747e", 
+                        "error": "#ba1a1a", 
+                        "surface-bright": "#fffbfe", 
+                        "on-error-container": "#410e0b", 
+                        "on-secondary-fixed": "#002019", 
+                        "on-primary": "#ffffff", 
+                        "surface-variant": "#e7e0ec", 
+                        "primary-fixed": "#ffe0ec", 
+                        "secondary-container": "#c0fff4", 
+                        "surface-container-lowest": "#ffffff", 
+                        "tertiary": "#665200", 
+                        "primary": "#ff2d78", 
+                        "on-tertiary-fixed": "#241a00", 
+                        "outline-variant": "#c4c6d0", 
+                        "on-primary-fixed-variant": "#8c0038", 
+                        "secondary": "#008066", 
+                        "inverse-primary": "#ffb1c8", 
+                        "surface-dim": "#ded8e1", 
+                        "surface-container": "#f3edf7", 
+                        "on-surface-variant": "#49454f", 
+                        "on-primary-container": "#3d0020", 
+                        "on-secondary-fixed-variant": "#00503e", 
+                        "secondary-fixed": "#c0fff4", 
+                        "on-secondary-container": "#002019", 
+                        "on-background": "#1c1b1f", 
+                        "inverse-surface": "#313033", 
+                        "tertiary-fixed": "#fff0c0", 
+                        "primary-container": "#ffe0ec", 
+                        "on-tertiary": "#ffffff", 
+                        "tertiary-fixed-dim": "#ffe04a", 
+                        "secondary-fixed-dim": "#00e6b8", 
+                        "on-primary-fixed": "#3d0020", 
+                        "on-secondary": "#ffffff", 
+                        "surface-container-high": "#ece6f0", 
+                        "primary-fixed-dim": "#ff80aa"
+                    },
+                    borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"},
+                    fontFamily: {headline: ["Sora"], display: ["Sora"], body: ["Inter"], label: ["Space Grotesk"]},
+                    spacing: {xl: "48px", base: "8px", xs: "4px", md: "20px", gutter: "16px", sm: "12px", lg: "32px", "container-margin": "20px", "element-gap": "12px", "section-gap": "28px", "stack-tight": "6px", "inline-gutter": "10px"}
+                }
+            }
+        };
     </script>
     <style>
-        /* 💡 배경을 산뜻하고 눈이 편안한 밝은 톤으로 수정했습니다 */
-        body { background-color: #f4f5f7; -webkit-font-smoothing: antialiased; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        /* Import Google Font for Plus Jakarta Sans */
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        /* Import Google Font for Sora, Inter, Space Grotesk */
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        body {
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-color: #f4f5f7;
+            display: flex;
+            justify-content: center;
+            min-h-screen;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Ambient Glow for numbers */
+        .glass-glow {
+            text-shadow: 0 0 15px rgba(0, 75, 116, 0.2);
+            transition: text-shadow 0.8s ease;
+        }
+        .dark .glass-glow {
+            text-shadow: 0 0 15px rgba(186, 233, 255, 0.4);
+        }
+
+        /* Ocean Wave Animation */
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .animate-wave-slow { animation: wave 25s linear infinite; }
+        .animate-wave-medium { animation: wave 18s linear infinite reverse; }
+        .animate-wave-fast { animation: wave 12s linear infinite; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ocean-wave { animation: none !important; }
+        }
+
+        .calculator-3d-card {
+            box-shadow: 
+                0 30px 60px rgba(0, 31, 42, 0.15),
+                0 15px 25px rgba(0, 31, 42, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.9),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            max-height: 90vh;
+            transition: background-color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        .dark .calculator-3d-card {
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                0 15px 25px rgba(0, 0, 0, 0.3),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Neumorphic buttons - Light */
+        .btn-neumorphic-white {
+            box-shadow: 6px 6px 12px #c9e7f7, -6px -6px 12px #ffffff;
+            transition: all 0.3s ease;
+        }
+        .btn-neumorphic-white:active {
+            box-shadow: inset 4px 4px 8px #c9e7f7, inset -4px -4px 8px #ffffff;
+            transform: scale(0.98);
+        }
+
+        /* Neumorphic buttons - Dark */
+        .dark .btn-neumorphic-white {
+            background-color: #1e293b !important;
+            color: #e2e8f0 !important;
+            box-shadow: 6px 6px 12px #0f172a, -4px -4px 10px rgba(255,255,255,0.05);
+        }
+        .dark .btn-neumorphic-white:active {
+            box-shadow: inset 4px 4px 8px #0f172a, inset -2px -2px 6px rgba(255,255,255,0.05);
+        }
+
+        .btn-neumorphic-primary {
+            box-shadow: 6px 6px 12px rgba(0, 31, 42, 0.2), -2px -2px 6px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-neumorphic-primary:active {
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -2px -2px 6px rgba(255, 255, 255, 0.1);
+            transform: scale(0.98);
+        }
+        
+        .dark .btn-neumorphic-primary {
+            background-color: #334155 !important;
+            color: #94a3b8 !important;
+            box-shadow: 6px 6px 12px #0f172a, -2px -2px 6px rgba(255,255,255,0.05);
+        }
+
+        .btn-calc-text {
+            font-size: clamp(1.25rem, 6vw, 2.25rem);
+            font-weight: 700;
+        }
+
+        .weather-transition {
+            transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease, backdrop-filter 0.8s ease;
+        }
+
+        /* Toggle Switch Styling */
+        .weather-toggle-container {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 9999px;
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .dark .weather-toggle-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .toggle-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toggle-btn.active {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .dark .toggle-btn.active {
+            background: #475569;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Invitation Specific Styles */
         .neon-glow { text-shadow: 0 2px 4px rgba(255, 45, 120, 0.1); }
         .secondary-glow { text-shadow: 0 1px 2px rgba(0, 128, 102, 0.1); }
         .thin-gold-border { border: 0.5px solid rgba(102, 82, 0, 0.2); }
         .gold-gradient-divider { height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(102, 82, 0, 0.3) 50%, transparent 100%); }
-        /* 💡 글래스패널을 밝은 모드에 맞게 반전 정돈했습니다 */
         .glass-panel { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+
+        /* 💡 고급스러운 금색 테두리 스타일을 추가했습니다 */
+        .premium-gold-border {
+            border: 2.5px solid rgba(255, 224, 74, 0.8); /* 더 굵고 불투명한 금색 테두리 */
+            box-shadow: 0 0 15px rgba(255, 224, 74, 0.3); /* 은은한 금빛 광채 추가 */
+        }
     </style>
 </head>
-<body class="font-body text-on-surface overflow-x-hidden flex justify-center min-h-screen">
+<body class="font-body text-on-surface">
 
-    <div class="w-full max-w-[600px] bg-[#ffffff] shadow-2xl relative flex flex-col justify-between border-x border-outline-variant/10">
+    <div class="w-full max-w-[600px] bg-[#ffffff] shadow-2xl relative flex flex-col justify-between border-x border-outline-variant/10 premium-gold-border">
 
         <header class="flex justify-between items-center px-container-margin h-14 w-full max-w-[600px] z-50 fixed top-0 bg-white/80 backdrop-blur-xl border-b-[0.5px] border-outline-variant/10">
             <div class="flex items-center gap-2">
@@ -210,7 +350,7 @@
                                 </label>
                             </div>
                         </div>
-                        <button class="w-full h-14 bg-primary text-white font-label text-[13px] font-bold tracking-[0.2em] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_4px_12px_rgba(255,45,120,0.2)]" type="submit">
+                        <button class="w-full h-14 bg-primary/80 text-white font-label text-[13px] font-bold tracking-[0.2em] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_4px_12px_rgba(255,45,120,0.1)]" type="submit">
                             회신서 제출하기
                             <span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
                         </button>
