@@ -1,306 +1,309 @@
-﻿<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주식회사 제니트리 코스닥 상장 기념 임직원 만찬회</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto_Serif_KR:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    
-    <style>
-        /* 기본 본문 글꼴을 현대적이고 세련된 'Pretendard'로 전면 교체합니다. */
-        body { 
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        /* 인사말 본문 및 정보용 Pretendard 클래스 (명확한 지정용) */
-        .font-pretendard {
-            font-family: 'Pretendard', sans-serif;
-        }
-
-        /* 메인 타이틀 강조용 럭셔리 영문 서체 Cormorant Garamond 클래스 */
-        .font-cormorant {
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        /* 기존 국문 명조 유지용 */
-        .font-serif-kr { 
-            font-family: 'Noto Serif KR', serif; 
-        }
-
-        /* [디자인 1] 고급 수입 종이의 미세한 오톨도톨한 입자 질감(Noise)을 구현한 배경 */
-        .premium-bg-texture {
-            background-color: #FAF9F6; /* 완전 차가운 흰색 대신 부드러운 우유빛 미색 */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.018'/%3E%3C/svg%3E");
-        }
-
-        /* [디자인 2] 최고급 명품 양장 다이어리 표지 느낌의 딥 네이비 헤더 배경 */
-        .premium-header-bg {
-            background-color: #0A192F;
-            background-image: radial-gradient(circle at 50% 30%, #152E54 0%, #061122 100%),
-                              url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-        }
-
-        /* [디자인 3] 입체적으로 빛나는 리얼 금박(Gold Foil) 효과 */
-        .gold-foil-text {
-            background: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 30%, #FFFFFF 45%, #AA7C11 75%, #D4AF37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
-        }
-
-        /* 헤더 아래쪽 테두리에 빛나는 금박 선을 두르기 위한 설정 */
-        .gold-foil-border {
-            border-image: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 40%, #AA7C11 70%, #F3E7C4 100%) 1;
-        }
-
-        /* [디자인 4] 둥근 모서리와 은은한 이중 그림자로 명품 느낌을 낸 하이라이트 카드 */
-        .premium-card {
-            background: #FFFFFF;
-            border: 1px solid rgba(197, 168, 128, 0.18);
-            box-shadow: 0 10px 30px -10px rgba(10, 25, 47, 0.05), 
-                        0 2px 10px -2px rgba(197, 168, 128, 0.06);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .premium-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(197, 168, 128, 0.35);
-            box-shadow: 0 20px 40px -15px rgba(10, 25, 47, 0.1), 
-                        0 4px 15px -2px rgba(197, 168, 128, 0.12);
-        }
-
-        /* [디자인 5] 각 내용 영역을 자연스럽게 구분해주는 스르륵 사라지는 금빛 실선 */
-        .gold-divider {
+﻿<!DOCTYPE html><html class="dark" lang="ko" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>KOSDAQ LISTING CELEBRATION - JANYTREE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-error": "#1a0000",
+                "on-tertiary-container": "#fff0c0",
+                "on-surface": "#e8e0f0",
+                "inverse-on-surface": "#0a0a12",
+                "tertiary-container": "#665200",
+                "error-container": "#3d0f0f",
+                "surface": "#0f0f1a",
+                "surface-container-low": "#111118",
+                "on-tertiary-fixed-variant": "#665200",
+                "background": "#0a0a12",
+                "surface-container-highest": "#28283e",
+                "surface-tint": "#ff2d78",
+                "outline": "#5a5068",
+                "error": "#ff4444",
+                "surface-bright": "#1a1a2e",
+                "on-error-container": "#ffa0a0",
+                "on-secondary-fixed": "#001a1a",
+                "on-primary": "#1a0010",
+                "surface-variant": "#1e1e30",
+                "primary-fixed": "#ffe0ec",
+                "secondary-container": "#004d3d",
+                "surface-container-lowest": "#0a0a12",
+                "tertiary": "#ffe04a",
+                "primary": "#ff2d78",
+                "on-tertiary-fixed": "#1a1000",
+                "outline-variant": "#302840",
+                "on-primary-fixed-variant": "#8c0038",
+                "secondary": "#00ffcc",
+                "inverse-primary": "#8c0038",
+                "surface-dim": "#0f0f1a",
+                "surface-container": "#141422",
+                "on-surface-variant": "#a098b0",
+                "on-primary-container": "#ffe0ec",
+                "on-secondary-fixed-variant": "#004d4d",
+                "secondary-fixed": "#c0fff4",
+                "on-secondary-container": "#c0fff4",
+                "on-background": "#e8e0f0",
+                "inverse-surface": "#e8e0f0",
+                "tertiary-fixed": "#fff0c0",
+                "primary-container": "#b3004e",
+                "on-tertiary": "#1a1000",
+                "tertiary-fixed-dim": "#ffe04a",
+                "secondary-fixed-dim": "#00e6b8",
+                "on-primary-fixed": "#3d0020",
+                "on-secondary": "#001a1a",
+                "surface-container-high": "#1e1e30",
+                "primary-fixed-dim": "#ff80aa"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Sora"],
+                "display": ["Sora"],
+                "body": ["Inter"],
+                "label": ["Space Grotesk"]
+            },
+            "spacing": {
+                "container-margin": "20px",
+                "element-gap": "12px",
+                "section-gap": "28px",
+                "stack-tight": "6px",
+                "inline-gutter": "10px"
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0a0a12; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .neon-glow { text-shadow: 0 0 10px rgba(255, 45, 120, 0.5), 0 0 20px rgba(255, 45, 120, 0.3); }
+        .secondary-glow { text-shadow: 0 0 10px rgba(0, 255, 204, 0.4); }
+        .thin-gold-border { border: 0.5px solid rgba(255, 224, 74, 0.3); }
+        .gold-gradient-divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(197, 168, 128, 0.1) 15%, rgba(197, 168, 128, 0.5) 50%, rgba(197, 168, 128, 0.1) 85%, transparent 100%);
-            position: relative;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 224, 74, 0.5) 50%, transparent 100%);
         }
-        .gold-diamond {
-            width: 7px;
-            height: 7px;
-            background: linear-gradient(135deg, #F3E7C4, #AA7C11);
-            transform: rotate(45deg) translate(-50%, -50%);
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform-origin: 0 0;
-            box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+        .hero-watermark {
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%);
         }
-
-        /* [디자인 6] 마우스 올릴 때 빔이 흐르고 은은히 빛나는(Glow) 프리미엄 버튼 */
-        .btn-premium {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0A192F 0%, #152E54 100%);
-            border: 1px solid rgba(197, 168, 128, 0.4);
-            box-shadow: 0 4px 15px rgba(10, 25, 47, 0.15);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn-premium::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(243, 231, 196, 0.25), transparent);
-            transform: skewX(-25deg);
-            transition: 0.75s ease;
-        }
-        .btn-premium:hover::before {
-            left: 150%;
-        }
-        .btn-premium:hover {
-            border-color: rgba(197, 168, 128, 0.85);
-            box-shadow: 0 0 25px rgba(197, 168, 128, 0.35), 0 6px 20px rgba(10, 25, 47, 0.25);
-            transform: translateY(-2px);
-        }
-        .btn-premium:active {
-            transform: translateY(0);
-        }
-
-        /* [디자인 7] 참석/불참 라디오 버튼을 선택했을 때 세련되게 불이 켜지는 럭셔리 라벨 */
-        .premium-radio-label {
-            border: 1px solid rgba(197, 168, 128, 0.25);
-            background-color: #FFFFFF;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .premium-radio-label:hover {
-            border-color: rgba(197, 168, 128, 0.5);
-            background-color: rgba(197, 168, 128, 0.02);
-        }
-        .premium-radio-label:has(input:checked) {
-            border-color: #AA7C11;
-            background-color: rgba(197, 168, 128, 0.08);
-            color: #0A192F;
-            box-shadow: 0 4px 12px rgba(197, 168, 128, 0.12);
-        }
-
-        /* [디자인 8] 성명 입력창에 커서를 넣었을 때 부드러운 포커스 아우라 효과 */
-        .premium-input {
-            border: 1px solid rgba(197, 168, 128, 0.3);
-            background-color: #FFFFFF;
-            transition: all 0.3s ease;
-        }
-        .premium-input:focus {
-            outline: none;
-            border-color: #AA7C11;
-            box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.2);
+        .glass-panel {
+            background: rgba(20, 20, 34, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
     </style>
 </head>
-<body class="premium-bg-texture text-stone-800 flex justify-center min-h-screen">
-
-    <div class="w-full max-w-[600px] bg-white shadow-2xl flex flex-col justify-between my-0 md:my-6 rounded-none md:rounded-2xl overflow-hidden border border-stone-200/50">
-        
-        <header class="relative premium-header-bg text-white px-8 py-24 text-center border-b-[3px] gold-foil-border">
-            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
-            
-            <p class="font-cormorant gold-foil-text tracking-[0.25em] uppercase text-sm font-medium italic mb-4">Notice of General Meeting</p>
-            
-            <h1 class="font-serif-kr text-2xl md:text-3xl font-medium tracking-wide leading-relaxed px-2">
-                주식회사 제니트리<br>
-                <span class="font-cormorant text-base tracking-[0.25em] font-light text-stone-400 block mt-2 mb-3">KOSDAQ LISTING CELEBRATION</span>
-                <span class="gold-foil-text font-bold">코스닥 상장 기념 임직원 만찬회</span><br>
-                <span class="text-stone-300 font-light text-xl mt-1 inline-block">초대합니다</span>
-            </h1>
-            
-            <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#C5A880] to-transparent mx-auto my-8"></div>
-            
-            <p class="font-cormorant text-xs text-stone-400 tracking-[0.3em] font-light uppercase">Janytree Co., Ltd.</p>
-        </header>
-
-        <main class="px-8 py-16 space-y-16">
-
-            <section class="text-center space-y-8 px-2">
-                <p class="font-pretendard text-xl text-[#0A192F] font-semibold tracking-wide leading-snug">
-                    함께 이룬 상장<br>감사의 자리에 초대합니다.
-                </p>
-                <div class="font-pretendard text-sm text-stone-600 leading-9 text-center tracking-wide font-light max-w-[420px] mx-auto break-keep">
-                    함께 걸어온 시간들이 모여 오늘의 뜻깊은 결실을 만들었습니다. 감사의 마음과 축하의 뜻을 나누고자 마련한 자리에 함께 해 주시기 바랍니다.
-                </div>
-            </section>
-
-            <div class="gold-divider">
-                <div class="gold-diamond"></div>
+<body class="font-body text-on-surface overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-container-margin h-14 w-full z-50 fixed top-0 bg-background/80 backdrop-blur-xl border-b-[0.5px] border-outline-variant/30">
+<div class="flex items-center gap-2">
+<img alt="Janytree Logo" class="w-5 h-5 grayscale invert brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2oq5QiSPb2BiL3Sj9BdE3GHaBnAYeG3qrZFTFCK3YeWcy647dieRzEI5Xv5YwKnd4g8tq6c68aybiDNaFR8FFZqNmhZK9R1KqwEzCZnW29m40TvUYQYWCZxr0aThXTPtl_2gVbT83ZsAF4JelWVfBIzrf4CdHDa_peKD5mHbLXMayqufqF1E6ZjlSIBLin9jke97lImur9TqZcQT-H-rIWQ2VOpiuxquH-B6yCjltjR-9rgJiTUJK_3A0ey7Y88NOdQT8hTsH4P4">
+<h1 class="font-display text-[12px] font-bold tracking-[0.2em] text-primary uppercase">Janytree</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface cursor-pointer text-[20px]" data-icon="share">share</span>
+<span class="material-symbols-outlined text-on-surface cursor-pointer text-[20px]" data-icon="menu">menu</span>
+</div>
+</header>
+<main class="pb-20">
+<!-- Hero Section -->
+<section class="relative min-h-[60vh] flex flex-col items-center justify-center pt-20 pb-10 px-container-margin overflow-hidden transition-all duration-[1000ms] ease-out opacity-100 translate-y-0">
+<!-- Content -->
+<div class="relative z-10 text-center flex flex-col items-center gap-2">
+<p class="font-label text-[10px] text-secondary tracking-[0.4em] uppercase font-bold secondary-glow">Notice of KOSDAQ Listing</p>
+<div class="mt-4 space-y-2">
+<h2 class="font-display text-[15px] text-tertiary tracking-widest font-light">주식회사 제니트리</h2>
+<div class="w-12 h-[1px] bg-primary mx-auto opacity-70"></div>
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 pointer-events-none z-[-1] opacity-20 mix-blend-lighten"><img alt="Logo Watermark" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM1yYqX0BjdpdfsOgbWK7h34UdoBy7uSAbyU53CY9fbZ0XfT_83X8oH9z-LiwmL1QfUdAbejUPG4bqcRJ5GpVBCyIgmva9EtuJPUy0cbLDSOqTZkWPUk4gdkqzOTpn0RiSiKig4959ivvzr6zxvLS6BgqieFxdokC0XHyN5lN49ISEZTv8nksrw_-hxKu2IB98WpUGlEObwm1RFD5QLy3Shd8AweLT_2W7zDQA5x0sPBDAQrkMX7CnxGtuhR9rgnik5LcayaIMoxE"></div><div class="space-y-1 relative z-10">
+<h3 class="font-display text-[26px] font-extrabold text-white leading-tight neon-glow">코스닥 상장 기념</h3>
+<h3 class="font-display text-[26px] font-extrabold text-white leading-tight neon-glow">임직원 만찬회</h3>
+</div>
+</div>
+<p class="font-body text-on-surface-variant mt-6 tracking-[0.2em] font-medium text-[13px]">초대합니다</p>
+<!-- Animated Scroll Indicator -->
+<div class="mt-10 animate-bounce opacity-30">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="keyboard_double_arrow_down">keyboard_double_arrow_down</span>
+</div>
+</div>
+</section>
+<!-- Message Section -->
+<section class="px-container-margin py-8 text-center relative transition-all duration-[1000ms] ease-out opacity-100 translate-y-0">
+<div class="max-w-md mx-auto">
+<h4 class="font-display text-[17px] font-semibold text-secondary mb-4 leading-relaxed">함께 이룬 상장,<br>감사의 자리에 초대합니다.</h4>
+<div class="gold-gradient-divider my-6"></div>
+<p class="font-body text-on-surface-variant leading-relaxed text-[13px]">
+                정성 어린 시간들이 모여 오늘의 뜻깊은 결실을 맺었습니다.<br>
+                감사의 마음과 축하의 뜻을 나누고자 마련한 자리에<div>모두 참석해 주시기 바랍니다.
+            </div></p>
+</div>
+</section>
+<!-- Event Details Panel -->
+<section class="px-container-margin transition-all duration-[1000ms] ease-out opacity-100 translate-y-0">
+<div class="glass-panel thin-gold-border p-6 rounded-xl shadow-xl flex flex-col gap-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border-[0.5px] border-primary/30">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="event">event</span>
+</div>
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Date &amp; Time</p>
+<p class="font-display text-[16px] text-white font-semibold">2028년 7월 7일 (금) 오후 7시</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border-[0.5px] border-secondary/30">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="map">map</span>
+</div>
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Location</p>
+<p class="font-display text-[16px] text-white font-semibold mb-0.5">그랜드 하얏트 호텔 산수룸</p>
+<p class="font-body text-[13px] text-on-surface-variant">서울 용산구 소월로 322</p>
+</div>
+</div>
+</div>
+<section class="px-container-margin mt-8 transition-all duration-[1000ms] ease-out opacity-100 translate-y-0">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-1 h-3.5 bg-primary"></div>
+        <h4 class="font-label text-[11px] text-white uppercase tracking-[0.2em] font-bold">오시는 길</h4>
+    </div>
+    
+    <div class="relative overflow-hidden rounded-xl thin-gold-border h-48 shadow-inner bg-surface-container group">
+        <img alt="Map" class="w-full h-full object-cover opacity-60 grayscale brightness-75 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp_OUxEL2Pgh7uMIUu9_8jK9WZ8S2ZCgOaOx30fij7_FN72bk3H7u14K2uztnUj8lMmvyOS9qYI4t_uczlIk9NejRYXVbUhe27POWC_eCAIhLG6fu72iHHNY8YXSWeAtYrEs_qsImnTVUUMTf7qKCanppG0lX5G8qYppwHGdfo7KBOzsGSprYgdUDCtTlwKGUwXlYdmcaMIFC4Jlt7SuBhzNs15yhezbN1bma9nst1CYYmgu-0xic5Gk1DpFNW4jkhOnS0sQ1wkY4">
+        <div class="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="glass-panel border-[0.5px] border-white/20 p-3 rounded shadow-2xl text-center min-w-[180px]">
+                <span class="material-symbols-outlined text-primary mb-1 text-[20px]" data-icon="domain" style="font-variation-settings: 'FILL' 1;">domain</span>
+                <p class="font-display text-[13px] font-bold text-white">그랜드 하얏트 서울</p>
+                <p class="text-[10px] text-on-surface-variant">용산구 소월로 322</p>
             </div>
-
-            <section class="space-y-6">
-                <h2 class="font-pretendard text-lg text-[#0A192F] font-bold flex items-center gap-3 tracking-wide">
-                    <span class="w-1 h-5 bg-gradient-to-b from-[#F3E7C4] to-[#AA7C11] inline-block rounded-sm"></span> 
-                    모임 안내 정보
-                </h2>
-                <div class="premium-card p-6 md:p-8 space-y-6">
-                    <div class="flex items-start gap-5">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#0A192F]/5 to-[#0A192F]/10 flex items-center justify-center shrink-0 text-[#0A192F] border border-stone-200/50 shadow-sm">
-                            <i class="fa-regular fa-calendar-days text-base"></i>
-                        </div>
-                        <div>
-                            <p class="font-pretendard text-xs text-stone-400 font-medium tracking-wider">일시</p>
-                            <p class="font-pretendard text-base font-semibold text-stone-800 mt-1 tracking-wide">2026년 6월 10일 (수) 오전 10시</p>
-                        </div>
-                    </div>
-                    
-                    <div class="h-[1px] bg-stone-100 w-full"></div>
-                    
-                    <div class="flex items-start gap-5">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#0A192F]/5 to-[#0A192F]/10 flex items-center justify-center shrink-0 text-[#0A192F] border border-stone-200/50 shadow-sm">
-                            <i class="fa-solid fa-location-dot text-base"></i>
-                        </div>
-                        <div>
-                            <p class="font-pretendard text-xs text-stone-400 font-medium tracking-wider">장소</p>
-                            <p class="font-pretendard text-base font-semibold text-stone-800 mt-1 leading-relaxed tracking-wide">
-                                서울시 금천구 가산디지털2로 67,<br class="block sm:hidden"> 
-                                에이스하이엔드7차 1403호 회의실
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="gold-divider">
-                <div class="gold-diamond"></div>
-            </div>
-
-            <section class="space-y-6">
-                <h2 class="font-pretendard text-lg text-[#0A192F] font-bold flex items-center gap-3 tracking-wide">
-                    <span class="w-1 h-5 bg-gradient-to-b from-[#F3E7C4] to-[#AA7C11] inline-block rounded-sm"></span> 
-                    오시는 길
-                </h2>
-                <div class="w-full h-52 bg-gradient-to-br from-[#FAF9F6] to-[#EAE6DF] rounded-xl relative overflow-hidden flex items-center justify-center border border-stone-300/60 shadow-inner">
-                    <div class="absolute inset-0 bg-[linear-gradient(rgba(197,168,128,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(197,168,128,0.06)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                    <div class="text-center z-10 p-6 bg-white/90 backdrop-blur-sm rounded-xl border border-[#C5A880]/30 shadow-md max-w-[90%]">
-                        <p class="font-pretendard text-sm font-semibold text-stone-800 flex items-center justify-center gap-2 tracking-wide">
-                            <i class="fa-solid fa-map-location-dot text-[#AA7C11] text-lg animate-bounce"></i>
-                            본사 회의실 (14F)
-                        </p>
-                        <p class="font-pretendard text-xs text-stone-500 mt-2 leading-relaxed tracking-wide">
-                            서울시 금천구 가산디지털2로 67, 에이스하이엔드7차 1403호
-                        </p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <a href="https://map.kakao.com" target="_blank" class="font-pretendard flex items-center justify-center gap-2 py-3.5 border border-stone-200/80 rounded-xl text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 hover:border-stone-300 transition-all duration-300 shadow-sm tracking-wide">
-                        <i class="fa-solid fa-navigation text-yellow-500 text-sm"></i> 카카오맵으로 보기
-                    </a>
-                    <a href="https://maps.google.com" target="_blank" class="font-pretendard flex items-center justify-center gap-2 py-3.5 border border-stone-200/80 rounded-xl text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 hover:border-stone-300 transition-all duration-300 shadow-sm tracking-wide">
-                        <i class="fa-solid fa-map text-blue-500 text-sm"></i> 구글 지도로 보기
-                    </a>
-                </div>
-            </section>
-
-            <div class="gold-divider">
-                <div class="gold-diamond"></div>
-            </div>
-
-            <section class="space-y-6 bg-[#FAF9F6] p-6 md:p-8 rounded-2xl border border-[#C5A880]/20 shadow-md">
-                <div class="text-center mb-6">
-                    <h2 class="font-pretendard text-xl text-[#0A192F] font-bold tracking-wide">참석 여부 회신</h2>
-                    <p class="font-pretendard text-xs text-stone-500 mt-2 leading-relaxed tracking-wide">원활한 모임 준비와 예약을 위해 참석 여부를 알려주시면 감사하겠습니다.</p>
-                </div>
-                <form id="rsvpForm" class="space-y-5" onsubmit="submitRSVP(event)">
-                    <div>
-                        <label class="font-pretendard block text-xs font-semibold text-stone-600 mb-2 tracking-wider">주주명</label>
-                        <input type="text" required class="font-pretendard premium-input w-full p-3.5 rounded-xl text-sm placeholder-stone-400 focus:ring-0" placeholder="성명을 입력해 주세요.">
-                    </div>
-                    <div>
-                        <label class="font-pretendard block text-xs font-semibold text-stone-600 mb-2 tracking-wider">참석 여부 선택</label>
-                        <div class="grid grid-cols-2 gap-4">
-                            <label class="font-pretendard premium-radio-label flex items-center justify-center gap-2.5 py-4 rounded-xl text-sm font-medium cursor-pointer shadow-sm tracking-wide">
-                                <input type="radio" name="attendance" value="참석" required class="accent-[#0A192F] w-4 h-4"> 참석
-                            </label>
-                            <label class="font-pretendard premium-radio-label flex items-center justify-center gap-2.5 py-4 rounded-xl text-sm font-medium cursor-pointer shadow-sm tracking-wide">
-                                <input type="radio" name="attendance" value="불참" class="accent-[#0A192F] w-4 h-4"> 불참 (위임)
-                            </label>
-                        </div>
-                    </div>
-                    <button type="submit" class="font-pretendard btn-premium w-full text-white py-4 rounded-xl font-semibold text-sm mt-3 tracking-widest">
-                        회신서 제출하기
-                    </button>
-                </form>
-            </section>
-        </main>
-
-        <footer class="bg-[#F6F5F2] text-stone-500 text-center py-10 px-8 text-xs border-t border-stone-200/50 space-y-3">
-            <p class="font-pretendard text-stone-800 font-semibold text-sm tracking-wider">주식회사 제니트리 이사회</p>
-            <p class="font-pretendard font-light tracking-wide">문의처: 경영지원본부 주식담당 (<span class="underline underline-offset-2">02-1234-5678</span>)</p>
-            <div class="w-8 h-[1px] bg-stone-300 mx-auto my-3"></div>
-            <p class="font-cormorant text-[11px] text-stone-400 tracking-wider">© 2026 JANYTREE Co., Ltd. All Rights Reserved.</p>
-        </footer>
-
+        </div>
     </div>
 
-    <script>
-        function submitRSVP(event) {
-            event.preventDefault();
-            alert("함께하는 뜻깊은 시간이 되기를 바랍니다.");
-            document.getElementById("rsvpForm").reset();
-        }
-    </script>
-</body>
-</html>
+    <div class="grid grid-cols-2 gap-3 mt-4">
+        <a href="https://map.kakao.com/?urlX=499354.99999999837&urlY=1122205&urlLevel=3&itemId=18661190&q=%EA%B7%B8%EB%9E%9C%EB%93%9C%20%ED%95%98%EC%96%8F%ED%8A%B8%20%EC%84%9C%EC%9A%B8&srcid=18661190&map_type=TYPE_MAP" target="_blank" class="h-12 glass-panel border-[0.5px] border-outline-variant/30 flex items-center justify-center gap-2 rounded-xl hover:bg-surface-container-high transition-all active:scale-95 decoration-none">
+            <span class="material-symbols-outlined text-secondary text-[18px]" data-icon="navigation">navigation</span>
+            <span class="font-label text-[12px] font-semibold text-white">카카오맵</span>
+        </a>
+        
+        <a href="https://map.naver.com/p/entry/place/11555954?lng=126.997452&lat=37.5396013&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202606020959&locale=ko&svcName=map_pcv5&businessCategory=hotel&entry=plt&searchType=place&c=15.00,0,0,0,dh" target="_blank" class="h-12 glass-panel border-[0.5px] border-outline-variant/30 flex items-center justify-center gap-2 rounded-xl hover:bg-surface-container-high transition-all active:scale-95 decoration-none">
+            <span class="material-symbols-outlined text-secondary text-[18px]" data-icon="map">map</span>
+            <span class="font-label text-[12px] font-semibold text-white">네이버지도</span>
+        </a>
+    </div>
+</section>
+<!-- RSVP Form Section -->
+<section class="px-container-margin mt-8 transition-all duration-[1000ms] ease-out opacity-100 translate-y-0">
+<div class="glass-panel thin-gold-border rounded-xl p-6 shadow-xl">
+<div class="text-center mb-6">
+<h4 class="font-display text-[18px] font-bold text-white mb-1">참석 여부 회신</h4>
+<p class="font-body text-[13px] text-on-surface-variant leading-tight">원활한 행사 준비를 위해 회신을 부탁드립니다.</p>
+</div>
+<form class="space-y-5" onsubmit="event.preventDefault(); alert('회신이 정상적으로 제출되었습니다.');">
+<div>
+<label class="block font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-2">성함</label>
+<input class="w-full h-12 bg-surface-container border-[0.5px] border-outline-variant/50 focus:border-primary focus:ring-1 focus:ring-primary/30 rounded-xl px-4 font-body text-white text-[14px] transition-all outline-none" placeholder="성함을 입력해 주세요" type="text">
+</div>
+<div>
+<label class="block font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-2">참석 여부</label>
+<div class="grid grid-cols-2 gap-3">
+<label class="relative flex items-center justify-center h-12 glass-panel border-[0.5px] border-outline-variant/50 rounded-xl cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5 transition-all">
+<input class="hidden peer" name="rsvp" type="radio">
+<span class="font-label text-[13px] font-medium text-on-surface-variant peer-checked:text-primary">참석</span>
+<div class="absolute top-1.5 right-1.5 opacity-0 peer-checked:opacity-100">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+</div>
+</label>
+<label class="relative flex items-center justify-center h-12 glass-panel border-[0.5px] border-outline-variant/50 rounded-xl cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5 transition-all">
+<input class="hidden peer" name="rsvp" type="radio">
+<span class="font-label text-[13px] font-medium text-on-surface-variant peer-checked:text-primary">불참 (위임)</span>
+<div class="absolute top-1.5 right-1.5 opacity-0 peer-checked:opacity-100">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary font-label text-[13px] font-bold tracking-[0.2em] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_5px_20px_rgba(255,45,120,0.3)]" type="submit">
+                    회신서 제출하기
+                    <span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+</button>
+</form>
+</div>
+</section>
+<!-- Signature Footer Section -->
+<section class="mt-8 pb-8 text-center px-container-margin transition-all duration-[1000ms] ease-out opacity-100 translate-y-0">
+<div class="gold-gradient-divider mb-6 opacity-30"></div>
+<h5 class="font-display text-[16px] font-semibold text-white mb-2">주식회사 제니트리 이사회</h5>
+<p class="font-body text-[12px] text-on-surface-variant">문의처: 경영지원본부 수석팀장 (02-1234-5678)</p>
+<div class="flex justify-center gap-2 mt-6">
+<span class="w-1 h-1 bg-primary/40 rounded-full"></span>
+<span class="w-1 h-1 bg-primary/60 rounded-full"></span>
+<span class="w-1 h-1 bg-primary/40 rounded-full"></span>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="flex justify-around items-center h-16 px-inline-gutter pb-safe fixed bottom-0 w-full z-50 bg-background/90 backdrop-blur-xl border-t-[0.5px] border-outline-variant/20">
+<div class="flex flex-col items-center justify-center text-primary gap-0.5 group cursor-pointer">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform" data-icon="mail" style="font-variation-settings: &quot;FILL&quot; 1;">mail</span>
+<span class="font-label text-[9px] uppercase font-bold tracking-widest">초대</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant gap-0.5 hover:text-white transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform" data-icon="calendar_month">calendar_month</span>
+<span class="font-label text-[9px] uppercase font-bold tracking-widest">안내</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant gap-0.5 hover:text-white transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform" data-icon="location_on">location_on</span>
+<span class="font-label text-[9px] uppercase font-bold tracking-widest">위치</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant gap-0.5 hover:text-white transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[22px] group-hover:scale-110 transition-transform" data-icon="check_circle">check_circle</span>
+<span class="font-label text-[9px] uppercase font-bold tracking-widest">참석</span>
+</div>
+</nav>
+<!-- Footer Copyright -->
+<footer class="flex flex-col items-center gap-3 px-container-margin w-full bg-surface-container-low border-t-[0.5px] border-outline-variant/20 py-10 mb-16">
+<div class="flex items-center gap-2 opacity-50 grayscale invert">
+<img alt="Footer Logo" class="w-4 h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2oq5QiSPb2BiL3Sj9BdE3GHaBnAYeG3qrZFTFCK3YeWcy647dieRzEI5Xv5YwKnd4g8tq6c68aybiDNaFR8FFZqNmhZK9R1KqwEzCZnW29m40TvUYQYWCZxr0aThXTPtl_2gVbT83ZsAF4JelWVfBIzrf4CdHDa_peKD5mHbLXMayqufqF1E6ZjlSIBLin9jke97lImur9TqZcQT-H-rIWQ2VOpiuxquH-B6yCjltjR-9rgJiTUJK_3A0ey7Y88NOdQT8hTsH4P4">
+<div class="font-label text-[10px] font-bold tracking-[0.3em] uppercase">Janytree</div>
+</div>
+<p class="font-body text-[11px] text-center text-on-surface-variant opacity-60">© 2028 JANYTREE Co., Ltd. All Rights Reserved.</p>
+<div class="flex gap-5 mt-1">
+<a class="font-body text-[10px] text-on-surface-variant/70 border-b border-on-surface-variant/20" href="#">관리자 문의</a>
+<a class="font-body text-[10px] text-on-surface-variant/70 border-b border-on-surface-variant/20" href="#">개인정보처리방침</a>
+</div>
+</footer>
+<script>
+    // Interaction logic
+    document.querySelectorAll('button, label, nav div').forEach(el => {
+        el.addEventListener('touchstart', () => el.style.transform = 'scale(0.96)');
+        el.addEventListener('touchend', () => el.style.transform = 'scale(1)');
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-6');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('transition-all', 'duration-[1000ms]', 'ease-out', 'opacity-0', 'translate-y-6');
+        observer.observe(section);
+    });
+</script>
+
+
+</body></html>
