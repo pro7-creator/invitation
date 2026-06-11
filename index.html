@@ -13,20 +13,14 @@
                     extend: {
                         "colors": {
                             "primary": "#ff2d78",
-                            "secondary": "#0d9488", /* 가독성을 위해 라이트모드에 맞는 차분한 딥틸 컬러로 조정 */
-                            "tertiary": "#b45309", /* 황금빛 도는 브라운 */
+                            "secondary": "#0d9488",
+                            "tertiary": "#b45309",
                             "background": "#ffffff",
                             "surface": "#f8fafc",
                             "surface-container": "#f1f5f9",
                             "on-surface": "#0f172a",
                             "on-surface-variant": "#475569",
                             "outline-variant": "#cbd5e1"
-                        },
-                        "borderRadius": {
-                            "DEFAULT": "0.125rem",
-                            "lg": "0.25rem",
-                            "xl": "0.5rem",
-                            "full": "0.75rem"
                         },
                         "fontFamily": {
                             "headline": ["Sora"],
@@ -36,35 +30,17 @@
                         },
                         "spacing": {
                             "container-margin": "20px",
-                            "element-gap": "12px",
                             "section-gap": "28px",
-                            "stack-tight": "6px",
-                            "inline-gutter": "10px"
                         }
                     },
                 },
             }
         </script>
         <style>
-            body {
-                background-color: #f1f5f9;
-                -webkit-font-smoothing: antialiased;
-            }
-
-            .material-symbols-outlined {
-                font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            }
-
-            .gold-gradient-divider {
-                height: 1px;
-                background: linear-gradient(90deg, transparent 0%, rgba(180, 83, 9, 0.3) 50%, transparent 100%);
-            }
-
-            .glass-panel {
-                background: rgba(255, 255, 255, 0.75);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-            }
+            body { background-color: #f1f5f9; -webkit-font-smoothing: antialiased; }
+            .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+            .gold-gradient-divider { height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(180, 83, 9, 0.3) 50%, transparent 100%); }
+            .glass-panel { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         </style>
     </head>
     <body class="font-body text-on-surface overflow-x-hidden flex justify-center min-h-screen">
@@ -72,7 +48,7 @@
             
             <header class="flex justify-between items-center px-container-margin h-14 w-full max-w-[600px] z-50 fixed top-0 bg-white/80 backdrop-blur-xl border-b-[0.5px] border-slate-200">
                 <div class="flex items-center gap-2">
-                    <img alt="Janytree Logo" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2oq5QiSPb2BiL3Sj9BdE3GHaBnAYeG3qrZFTFCK3YeWcy647dieRzEI5Xv5YwKnd4g8tq6c68aybiDNaFR8FFZqNmhZK9R1KqwEzCZnW29m40TvUYQYWCZxr0aThXTPtl_2gVbT83ZsAF4JelWVfBIzrf4CdHDa_peKD5mHbLXMayqufqF1E6ZjlSIBLin9jke97lImur9TqZcQT-H-rIWQ2VOpiuxquH-B6yCjltjR-9rgJiTUJK_3A0ey7Y88NOdQT8hTsH4P4">
+                    <img alt="Janytree Logo" class="w-5 h-5 rounded-full" src="image_1.png">
                     <h1 class="font-display text-[12px] font-bold tracking-[0.2em] text-primary uppercase">Janytree</h1>
                 </div>
                 <div class="flex items-center gap-4 text-slate-700">
@@ -83,13 +59,11 @@
 
             <main class="pb-20 pt-14">
                 
-                <section class="relative min-h-[45vh] flex flex-col items-center justify-center py-10 px-container-margin overflow-hidden bg-slate-50">
+                <section class="relative min-h-[40vh] flex flex-col items-center justify-center pt-10 pb-5 px-container-margin overflow-hidden bg-slate-50">
                     <div class="relative z-10 text-center flex flex-col items-center gap-2">
                         <p class="font-label text-[10px] text-secondary tracking-[0.4em] uppercase font-bold">Notice of KOSDAQ Listing</p>
                         <div class="mt-4 space-y-2">
                             <h2 class="font-display text-[16px] text-tertiary tracking-widest font-semibold">주식회사 제니트리</h2>
-                            
-                            <img alt="Janytree Logo Central" class="w-12 h-5 mx-auto opacity-50 object-contain my-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2oq5QiSPb2BiL3Sj9BdE3GHaBnAYeG3qrZFTFCK3YeWcy647dieRzEI5Xv5YwKnd4g8tq6c68aybiDNaFR8FFZqNmhZK9R1KqwEzCZnW29m40TvUYQYWCZxr0aThXTPtl_2gVbT83ZsAF4JelWVfBIzrf4CdHDa_peKD5mHbLXMayqufqF1E6ZjlSIBLin9jke97lImur9TqZcQT-H-rIWQ2VOpiuxquH-B6yCjltjR-9rgJiTUJK_3A0ey7Y88NOdQT8hTsH4P4">
                             
                             <div class="space-y-1 relative z-10">
                                 <h3 class="font-display text-[26px] font-extrabold text-slate-900 leading-tight">코스닥 상장 기념</h3>
@@ -97,13 +71,15 @@
                             </div>
                         </div>
                         <p class="font-body text-on-surface-variant mt-6 tracking-[0.2em] font-medium text-[13px]">초대합니다</p>
-                        <div class="mt-8 animate-bounce opacity-40">
-                            <span class="material-symbols-outlined text-primary text-[20px]" data-icon="keyboard_double_arrow_down">keyboard_double_arrow_down</span>
-                        </div>
                     </div>
                 </section>
 
-                <section class="px-container-margin py-8 text-center relative">
+                <section class="flex flex-col items-center justify-center -mt-2 mb-6">
+                    <img alt="Janytree Company Logo" 
+                         src="image_1.png" 
+                         class="w-16 h-auto opacity-50 object-contain mx-auto" />
+                </section>
+                <section class="px-container-margin py-6 text-center relative">
                     <div class="max-w-md mx-auto">
                         <h4 class="font-display text-[17px] font-bold text-secondary mb-4 leading-relaxed">
                             함께 이룬 상장,<br>감사의 자리에 초대합니다.
@@ -232,8 +208,8 @@
             </nav>
 
             <footer class="flex flex-col items-center gap-3 px-container-margin w-full bg-slate-50 border-t border-slate-200 py-10 mb-16">
-                <div class="flex items-center gap-2 opacity-60">
-                    <img alt="Footer Logo" class="w-4 h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2oq5QiSPb2BiL3Sj9BdE3GHaBnAYeG3qrZFTFCK3YeWcy647dieRzEI5Xv5YwKnd4g8tq6c68aybiDNaFR8FFZqNmhZK9R1KqwEzCZnW29m40TvUYQYWCZxr0aThXTPtl_2gVbT83ZsAF4JelWVfBIzrf4CdHDa_peKD5mHbLXMayqufqF1E6ZjlSIBLin9jke97lImur9TqZcQT-H-rIWQ2VOpiuxquH-B6yCjltjR-9rgJiTUJK_3A0ey7Y88NOdQT8hTsH4P4">
+                <div class="flex items-center gap-2 opacity-60 grayscale invert">
+                    <img alt="Footer Logo" class="w-4 h-4 rounded-full" src="image_1.png">
                     <div class="font-label text-[10px] font-bold tracking-[0.3em] uppercase text-slate-800">Janytree</div>
                 </div>
                 <p class="font-body text-[11px] text-center text-slate-500">© 2028 JANYTREE Co., Ltd. All Rights Reserved.</p>
@@ -241,8 +217,9 @@
         </div>
 
         <script>
+            // Supabase 임시 키 사용 중 (실제 기능 작동 안 함)
             const SUPABASE_URL = 'https://zjzkruizhgivdjfqxchvm.supabase.co';
-            const SUPABASE_KEY = 'sb_publishable_82woQaHS9KHd3RdEufAx5A_Q-fGZYNh';
+            const SUPABASE_KEY = 'sb_publishable_placeholder_key';
 
             async function submitRSVP(event) {
                 event.preventDefault();
